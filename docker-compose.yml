@@ -1,0 +1,89 @@
+# docker-compose.yml
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8082:80"
+    volumes:
+      - ./php/src:/var/www/html
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+      - ./react/dist:/var/www/react-dist
+    depends_on:
+      - php
+      - database  
+    networks:
+      - nimon-net
+
+  php:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    working_dir: /var/www/html
+    volumes:
+      - ./php/src:/var/www/html
+      - ./php/php.ini:/usr/local/etc/php/conf.d/custom.ini
+    depends_on:
+      - database  
+    networks:
+      - nimon-net
+
+  database:     
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: nimonspedia
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5433:5432"
+    volumes:
+      - db-data:/var/lib/postgresql
+      - ./db-init:/docker-entrypoint-initdb.d
+    networks:
+      - nimon-net
+  nodejs:
+    build:
+      context: ./nodejs
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    volumes:
+      - ./nodejs:/app
+      - /app/node_modules
+    environment:
+      - PORT=3001
+      - DB_HOST=database
+      - DB_PORT=5432
+      - DB_NAME=nimonspedia
+      - DB_USER=user
+      - DB_PASSWORD=password
+      - JWT_SECRET=9f9759d6b3518d09097215bcb22ca5f6
+      - JWT_SECRET_ADMIN=79ff29155bc69b50109b538858330c6f
+    depends_on:
+      - database
+    networks:
+      - nimon-net
+    dns:
+      - 8.8.8.8
+      - 8.8.4.4
+  react:
+    build:
+      context: ./react
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./react:/app
+      - /app/node_modules
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    depends_on:
+      - nodejs
+    networks:
+      - nimon-net
+ 
+volumes:
+  db-data:
+
+networks:
+  nimon-net:
+    driver: bridge

@@ -1,0 +1,153 @@
+#root {
+  width: 100%;
+  max-width: 100%; 
+  margin: 0;
+  padding: 0;
+  text-align: left; 
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+/* Layout Utama */
+.chat-container {
+  display: flex;
+  height: 85vh;
+  border: 1px solid #ddd;
+  margin: 20px;
+  background: white;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.chat-sidebar {
+  width: 30%;
+  border-right: 1px solid #eee;
+  overflow-y: auto;
+  background: #f8f9fa;
+}
+.chat-sidebar h3 { padding: 15px; margin: 0; border-bottom: 1px solid #eee; }
+
+.room-item {
+  display: flex;
+  padding: 15px;
+  cursor: pointer;
+  border-bottom: 1px solid #f0f0f0;
+  align-items: center;
+}
+.room-item:hover, .room-item.active { background: #e3f2fd; }
+
+.room-avatar {
+  width: 40px; height: 40px;
+  background: #00AA5B; color: white;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  margin-right: 10px; font-weight: bold;
+}
+
+/* Area Chat Utama */
+.chat-main { flex: 1; display: flex; flex-direction: column; }
+.chat-header { padding: 15px; border-bottom: 1px solid #eee; background: #fff; }
+
+.messages-area {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+  background: #f5f5f5;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Bubble Chat */
+.message-bubble {
+  max-width: 60%;
+  padding: 10px 15px;
+  border-radius: 10px;
+  position: relative;
+}
+.my-message {
+  align-self: flex-end;
+  background: #00AA5B; /* Warna hijau Nimonspedia */
+  color: white;
+  border-bottom-right-radius: 2px;
+}
+.their-message {
+  align-self: flex-start;
+  background: white;
+  color: #333;
+  border: 1px solid #ddd;
+  border-bottom-left-radius: 2px;
+}
+.msg-time {
+  font-size: 0.7em;
+  opacity: 0.7;
+  display: block;
+  text-align: right;
+  margin-top: 5px;
+}
+
+/* Input Area */
+.chat-input-area {
+  padding: 15px;
+  background: white;
+  border-top: 1px solid #eee;
+  display: flex;
+  gap: 10px;
+}
+.chat-input-area input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  outline: none;
+}
+.chat-input-area button {
+  background: #00AA5B;
+  color: white;
+  border: none;
+  padding: 0 20px;
+  border-radius: 20px;
+  cursor: pointer;
+}

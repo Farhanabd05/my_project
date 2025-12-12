@@ -1,0 +1,285 @@
+/* berkompromi dengan css parent*/
+
+html, body, #root {
+  height: auto !important;
+  min-height: auto !important;
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", system-ui, sans-serif;
+  background: #fafafa;
+}
+
+#root {
+  display: block !important;
+}
+
+
+/* layout dashboard */
+
+.dashboard {
+  padding: 2rem;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+
+/* header */
+
+.dashboard-header {
+  background: #ffffff;
+  padding: 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.dashboard-header h2 {
+  margin: 0 0 0.3rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.logout-btn {
+    padding: "8px 14px";
+    color: "#d9534f";
+    border: "none";
+    color: "white";
+    border-radius: "6px";
+    cursor: "pointer";
+}
+
+/* global feature */
+
+.global-features {
+  background: #ffffff;
+  padding: 1rem 1.5rem;
+  border-radius: 12px;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+}
+
+.feature-status-enabled {
+  color: #0f9d58;
+  font-weight: 600;
+}
+
+.feature-status-disabled {
+  color: #d93025;
+  font-weight: 600;
+}
+
+.global-features button {
+  margin-top: 1rem;
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: #424be0;
+  color: white;
+  cursor: pointer;
+}
+
+/* filter dkk */
+
+.filter-bar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+}
+
+.search-box {
+  width: 100%;
+  padding: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.role-filters {
+  display: flex;
+  gap: 2rem;
+  font-size: 0.9rem;
+}
+
+
+/* card */
+
+.user-grid {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: 1fr;
+}
+
+.user-card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.2rem 1.5rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  transition: transform 0.1s ease, box-shadow 0.1s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.user-card h3 {
+  margin: 0 0 0.3rem 0;
+}
+
+.user-card .feature-list li {
+  margin-bottom: 0.3rem;
+}
+
+.user-card button {
+  margin-top: auto;                 /* Push to bottom */
+  align-self: flex-end;             /* Right aligned */
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  background: #424be0;
+  color: white;
+  cursor: pointer;
+}
+
+
+/* pagination */
+
+.pagination {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.pagination button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  background: #ddd;
+  border-radius: 6px;
+}
+
+/* feature dan warna warni */
+
+.feature-list {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.feature-enabled {
+  color: #0f9d58;
+  font-weight: 600;
+}
+
+.feature-disabled {
+  color: #d93025;
+  font-weight: 600;
+}
+
+
+/* modal */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: none;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-overlay.open {
+  display: flex;
+}
+
+.modal-box {
+  background: white;
+  width: 450px;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.2);
+}
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+  gap: 0.6rem;
+}
+
+.modal-actions button {
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.modal-actions button:first-child {
+  background: #ccc;
+}
+
+.modal-actions button:last-child {
+  background: #1976d2;
+  color: white;
+}
+
+/* loading skeleton */
+/* Wrapper card */
+.skeleton-card {
+    background: white;
+    padding: 16px;
+    border-radius: 8px;
+    height: 180px;
+}
+
+/* Gray animated bars */
+.skeleton {
+    background: #e3e3e3;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    animation: pulse 1.4s ease-in-out infinite;
+}
+
+.skeleton-title {
+    width: 60%;
+    height: 20px;
+}
+
+.skeleton-line {
+    width: 100%;
+    height: 14px;
+}
+
+.skeleton-line.short {
+    width: 40%;
+    height: 14px;
+}
+
+/* Shimmer animation */
+@keyframes pulse {
+    0% { opacity: 0.5; }
+    50% { opacity: 1; }
+    100% { opacity: 0.5; }
+}
+
+/* toast */
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    padding: 10px 16px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    z-index: 9999;
+    opacity: 0;
+    animation: fadeInOut 2s ease forwards;
+}
+
+.success-toast {
+    background: #4caf50;
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; transform: translateY(-10px); }
+    10% { opacity: 1; transform: translateY(0); }
+    90% { opacity: 1; transform: translateY(0); }
+    100% { opacity: 0; transform: translateY(-10px); }
+}
